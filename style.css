@@ -14,22 +14,39 @@ body {
 
 }
 
-section .card .image {
-    height: 140px;
-    width: 140px;
-
-    /* 사진의 크기를 둥글게 만듬. */
-    border-radius: 50%;
-    padding: 3px;
-    background: #7d2ae8;
+.swiper {
+    width: 100%;
+    height: 100%;
 }
 
-section .card .image img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 50%;
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section .card .image{
+    height: 140px;
+    width: 140px;
+    
     /* 사진의 크기를 둥글게 만듬. */
+    border-radius: 50%;
+  
+    background: #7d2ae8;
+}
+.image {
+    height: 10px; /* 더 작은 크기로 조정 */
+    width: 120px; /* 더 작은 크기로 조정 */
+    border-radius: 50%;
+    background: #7d2ae8;
+    margin-bottom: 20px; /* 이미지 아래 여백 추가 */
+}
+
+section .card .image img{
+    margin-top: 10px;
+    height: 150px;
+    width: 150px;
+    border-radius: 60%;
     border: 3px soild #fff;
 }
 
@@ -37,10 +54,14 @@ section .card .image img {
     position: relative;
     /* 자기 자신의 기본 위치에서 상대적으로 이동 */
     background: #fff;
-    border-radius: 20px
+    border-radius: 20px;
+
+    width: 300px; /* 인물 카드의 가로 너비 */
+    height: auto; /* 카드의 높이를 내용에 따라 유동적으로 설정 */
+    margin: 20px; /* 카드 간 간격 설정 */
 }
 
-.card .card-content {
+.card-content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,6 +90,7 @@ section .card .image img {
 
 .blog-icon,
 .github-icon {
+    
     color: black;
     margin: 10px;
     font-size: 25px; /* 아이콘 크기 설정 */
@@ -93,7 +115,7 @@ section .card .image img {
 
 .card .aboutMe {
     display: flex;
-    width: 100%;
+    width: 150px;
     justify-content: space-around;
     margin-top: 20px;
     background: #7d2ae8;
@@ -102,10 +124,14 @@ section .card .image img {
     color: #fff;
     padding: 8px 22px;
     border-radius: 20px;
-    font-size: 10px;
+    font-size: 20px;
     transition: all 0.3s ease;
 }
 
-.aboutMe:hover{
+.aboutMe:hover {
     background: #6616d0;
+}
+
+.promise {
+    text-align: center;
 }
