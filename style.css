@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f2f2f2;
+
+}
+
+section .card .image {
+    height: 140px;
+    width: 140px;
+
+    /* 사진의 크기를 둥글게 만듬. */
+    border-radius: 50%;
+    padding: 3px;
+    background: #7d2ae8;
+}
+
+section .card .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    /* 사진의 크기를 둥글게 만듬. */
+    border: 3px soild #fff;
+}
+
+.card {
+    background: #fff;
+    border-radius: 20px
+}
