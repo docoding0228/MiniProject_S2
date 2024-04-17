@@ -1,71 +1,51 @@
+@font-face {
+    font-family: 'TTHakgyoansimDotbogiR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_keris@1.0/TTHakgyoansimDotbogiR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;  
 }
 
-body {
+.container {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f2f2f2;
+    font-family: "Poppins", sans-serif;
 
 }
 
-.swiper {
-    width: 100%;
-    height: 100%;
-}
-
-.swiper-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-section .card .image{
-    height: 140px;
-    width: 140px;
-    
-    /* 사진의 크기를 둥글게 만듬. */
-    border-radius: 50%;
-  
-    background: #7d2ae8;
-}
 .image {
-    height: 10px; /* 더 작은 크기로 조정 */
+    height: 120px; /* 더 작은 크기로 조정 */
     width: 120px; /* 더 작은 크기로 조정 */
     border-radius: 50%;
     background: #7d2ae8;
     margin-bottom: 20px; /* 이미지 아래 여백 추가 */
 }
 
-section .card .image img{
-    margin-top: 10px;
-    height: 150px;
-    width: 150px;
-    border-radius: 60%;
-    border: 3px soild #fff;
-}
-
 .card {
     position: relative;
     /* 자기 자신의 기본 위치에서 상대적으로 이동 */
     background: #fff;
-    border-radius: 20px;
-
-    width: 300px; /* 인물 카드의 가로 너비 */
-    height: auto; /* 카드의 높이를 내용에 따라 유동적으로 설정 */
-    margin: 20px; /* 카드 간 간격 설정 */
+    border-radius: 10%;
+    width: 200px; 
+    height: 380px;
+    margin: 10px; 
+    overflow: hidden;
+    /* margin-top: 10px; */
+    border: 2px solid #000; /* 테두리 추가 */
 }
 
 .card-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
+    padding: 10px;
     position: relative;
     z-index: 100;
 }
@@ -75,8 +55,8 @@ section .card .image img{
     position: absolute;
     height: 30%;
     width: 100%;
-    background: #7d2ae8;
-    border-radius: 20px 20px 0 0;
+    background: #00ffa2;
+    border-radius: 0 0 0 0;
 }
 
 .card .name-profession {
@@ -90,10 +70,9 @@ section .card .image img{
 
 .blog-icon,
 .github-icon {
-    
     color: black;
     margin: 10px;
-    font-size: 25px; /* 아이콘 크기 설정 */
+    font-size: 20px; /* 아이콘 크기 설정 */
     cursor: pointer; /* 커서를 포인터로 변경하여 클릭 가능하게 함 */
 }
 
@@ -118,20 +97,105 @@ section .card .image img{
     width: 150px;
     justify-content: space-around;
     margin-top: 20px;
-    background: #7d2ae8;
+    background: #00ddff;
     outline: none;
     border: none;
     color: #fff;
     padding: 8px 22px;
     border-radius: 20px;
-    font-size: 20px;
+    font-size: 10px;
     transition: all 0.3s ease;
 }
 
 .aboutMe:hover {
-    background: #6616d0;
+    background: #00ffa2;
 }
 
-.promise {
-    text-align: center;
+.promise, .name, .tendency{
+    text-align: center; 
+    font-size: 13px;
+    margin-bottom: 5px;
+    font-family: "Single Day", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
+
+section .image{
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    background: #00ffa2;
+}
+
+
+section .image img{
+    margin-top: 10px;
+    height: 150px;
+    width: 140px;
+    border-radius: 50%; 
+    border: 2px solid #000;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+}
+
+.navbar {
+    background-color: #44ff00;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 2px 2px 2px rgb(0, 255, 251);
+    font-family: 'TTHakgyoansimDotbogiR';   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .navbar-teamname {
+    color: #003cff;
+    font-size: 1.3rem;
+    text-align: center;
+    flex-grow: 1; /* 중앙에 정렬되도록 확장되도록 설정합니다. */
+    animation-iteration-count: 3;
+    animation-name: controller;
+    animation-duration: 2s;
+}
+
+  .navbar-teamname:hover {
+    color: #ff0000;
+  }
+
+  #guestBookBtn, #HomeBtn {
+    border: 2px solid rgb(1, 1, 1);
+    color: #000000;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .notice-container {
+    display: flex;
+    justify-content: center; /* 요소들을 가운데 정렬합니다. */
+    gap: 30px; /* 요소들 사이의 간격을 설정합니다. */
+    margin-top: 30px; /* 위쪽 간격을 추가합니다. */
+  }
+
+  .notice {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(50% - 10px); /* 컨테이너의 절반 크기로 설정하고 간격을 빼줍니다. */
+    max-width: 300px; /* 최대 너비를 설정합니다. */
+  }
+
+  .notice-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .notice-content {
+    font-size: 18px;
+    text-align: center;
+  }
