@@ -5,6 +5,12 @@
     font-style: normal;
 }
 
+body {
+    background-color: #eff1d7;
+    height: 100%;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -138,12 +144,15 @@ section .image img{
 
 .navbar-brand {
     font-size: 1.8rem;
+    text-align: center;
+    flex-grow: 1; /* 중앙에 정렬되도록 확장되도록 설정합니다. */
+    color: #eff1d7;
 }
 
 .navbar {
-    background-color: #44ff00;
+    background-color: #30911a;
     border-radius: 0 0 10px 10px;
-    box-shadow: 2px 2px 2px rgb(0, 255, 251);
+    box-shadow: 2px 2px 2px gray;
     font-family: 'TTHakgyoansimDotbogiR';   
     display: flex;
     justify-content: space-between;
@@ -151,25 +160,18 @@ section .image img{
     padding: 10px;
   }
 
-  .navbar-teamname {
-    color: #003cff;
-    font-size: 1.3rem;
-    text-align: center;
-    flex-grow: 1; /* 중앙에 정렬되도록 확장되도록 설정합니다. */
-    animation-iteration-count: 3;
-    animation-name: controller;
-    animation-duration: 2s;
-}
-
   .navbar-teamname:hover {
     color: #ff0000;
   }
 
   #guestBookBtn, #HomeBtn {
-    border: 2px solid rgb(1, 1, 1);
-    color: #000000;
-    font-size: 1.1rem;
+    border: 2px solid #eff1d7;
+    background-color: #30911a;
+    color: #eff1d7;
+    font-size: 1.5rem;
     padding: 0.5rem 1rem;
+    font-family: 'TTHakgyoansimDotbogiR';
+    align-items: center;
   }
 
   .notice-container {
@@ -185,7 +187,11 @@ section .image img{
     border: 1px solid #ccc;
     border-radius: 5px;
     width: calc(50% - 10px); /* 컨테이너의 절반 크기로 설정하고 간격을 빼줍니다. */
-    max-width: 300px; /* 최대 너비를 설정합니다. */
+    max-width: 400px; /* 최대 너비를 설정합니다. */
+    line-height: 1.5;
+    font-family: "Single Day", cursive;
+    font-style: normal;
+
   }
 
   .notice-title {
@@ -196,6 +202,14 @@ section .image img{
   }
 
   .notice-content {
-    font-size: 18px;
+    font-size: 15px;
     text-align: center;
   }
+
+.a{
+    text-decoration: none;
+  }
+
+  .highlight {
+    color: red; /* 빨간색으로 설정하거나 원하는 색상으로 변경하세요 */
+}
