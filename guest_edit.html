@@ -19,10 +19,9 @@
         }
     </style>
     <script type="module">
+        // Firebase SDK 라이브러리 가져오기
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, where, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyDh6zLnyROVOfCWvNFUc7ZuA8vwcfetQfg",
@@ -37,21 +36,46 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        $("#registbtn").click(async function () {
-            let name = $('#input-name').val();
-            let passwprd = $('#input-password').val();
-            let guestbook = $('#input-guestbook').val();
+        $("#editbtn").click(async function () {
+            var name = $('#input-name').val();
+            var password = $('#input-password').val();
 
-            let doc = {
-                'input-name': name,
-                'input-password': passwprd,
-                'input-guestbook': guestbook
-            };
-            await addDoc(collection(db, "guestbook_entries"), doc);
+            const q = query(collection(db, "guestbook_entries"), where("input-name", "==", name), where("input-password", "==", password));
+            const querySnapshot = await getDocs(q);
 
-            alert('등록되었습니다!');
-            window.opener.postMessage('guestbookSubmitted', '*'); 
-            window.close();
+            if (!querySnapshot.empty) {
+                querySnapshot.forEach(async (doc) => {
+                    var data = doc.data();
+                    var id = doc.id;
+                    var message = $('#input-guestbook').val();
+
+                    if (message.trim() === '') {
+                        await deleteDoc(doc.ref)
+                            .then(() => {
+                                alert("방명록이 삭제되었습니다.");
+                                window.opener.postMessage("guestbookEdited", "*");
+                                window.close();
+                            })
+                            .catch((error) => {
+                                console.error("Error removing document: ", error);
+                            });
+                    } else {
+                        await updateDoc(doc.ref, {
+                            'input-guestbook': message
+                        })
+                        .then(() => {
+                            alert("방명록이 수정되었습니다.");
+                            window.opener.postMessage("guestbookEdited", "*");
+                            window.close();
+                        })
+                        .catch((error) => {
+                            console.error("Error updating document: ", error);
+                        });
+                    }
+                });
+            } else {
+                alert("이름 또는 비밀번호가 잘못되었습니다. 수정/삭제를 진행할 수 없습니다.");
+            }
         });
 
     </script>
@@ -82,17 +106,19 @@
                 <div class="form-group row">
                     <label for="input-guestbook" class="col-sm-3 col-form-label">방명록</label>
                     <div class="col-sm-9">
-                        <textarea class="form-control" id="input-guestbook" rows="3" placeholder="방명록을 입력하세요"></textarea>
+                        <textarea class="form-control" id="input-guestbook" rows="3"
+                            placeholder="삭제를 원할 시 비워두세요."></textarea>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- 등록 버튼 -->
     <div class="container mt-3">
         <div class="row justify-content-end">
             <div class="col-md-2">
-                <button id="registbtn" type="button" class="btn btn-primary">등록하기</button>
+                <button id="editbtn" type="button" class="btn btn-primary">수정/삭제</button>
             </div>
         </div>
     </div>
