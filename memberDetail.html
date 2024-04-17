@@ -18,11 +18,18 @@
     <link rel="stylesheet" href="./memberDetail.css">
     <link rel="stylesheet" href="./checkPopup.css">
     <link rel="stylesheet" href="./editPopup.css">
+    <link rel="stylesheet" href="style.css">
+    
 
 </head>
 <body>
-    <!-- 헤더 섹션-->
-    <div id="header"></div>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <a class="navbar-brand mx-auto" href="#" style="text-decoration: none;">우리... 할 수 있조 🔥</a>
+        <div class="d-flex" role="search">
+            <button class="btn btn-outline-success" id="guestBookBtn">✏️ 방명록</button>
+        </div>
+    </nav>
 
     <div class="contents">
         <div class="profile">
@@ -170,10 +177,6 @@
 
 </body>
 <script>
-    // 헤더 파일 불러오기
-    $(document).ready(function() {
-        $("#header").load("./header.html");
-    })
 
     function loadPopup() {
         document.getElementById('popupCheck').style.display = 'block';
@@ -188,6 +191,12 @@
         document.getElementById('popupCheck').style.display = 'none';
         document.getElementById('popupEdit').style.display = 'block';
     })
+
+    $(document).on("click", "#guestBookBtn", function () {
+            window.location.href = "guest_room.html";
+        });
+
+
 
     // 실행 안 됨
     // function loadPopup() {

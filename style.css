@@ -14,7 +14,7 @@ body {
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;  
+    box-sizing: border-box;
 }
 
 .container {
@@ -27,11 +27,14 @@ body {
 }
 
 .image {
-    height: 120px; /* 더 작은 크기로 조정 */
-    width: 120px; /* 더 작은 크기로 조정 */
+    height: 120px;
+    /* 더 작은 크기로 조정 */
+    width: 120px;
+    /* 더 작은 크기로 조정 */
     border-radius: 50%;
     background: #7d2ae8;
-    margin-bottom: 20px; /* 이미지 아래 여백 추가 */
+    margin-bottom: 20px;
+    /* 이미지 아래 여백 추가 */
 }
 
 .card {
@@ -39,12 +42,13 @@ body {
     /* 자기 자신의 기본 위치에서 상대적으로 이동 */
     background: #fff;
     border-radius: 10%;
-    width: 200px; 
+    width: 200px;
     height: 380px;
-    margin: 10px; 
+    margin: 10px;
     overflow: hidden;
     /* margin-top: 10px; */
-    border: 2px solid #000; /* 테두리 추가 */
+    border: 2px solid #000;
+    /* 테두리 추가 */
 }
 
 .card-content {
@@ -78,22 +82,26 @@ body {
 .github-icon {
     color: black;
     margin: 10px;
-    font-size: 20px; /* 아이콘 크기 설정 */
-    cursor: pointer; /* 커서를 포인터로 변경하여 클릭 가능하게 함 */
+    font-size: 20px;
+    /* 아이콘 크기 설정 */
+    cursor: pointer;
+    /* 커서를 포인터로 변경하여 클릭 가능하게 함 */
 }
 
 .blog-icon:hover,
 .github-icon:hover {
-    opacity: 0.8; 
+    opacity: 0.8;
     background: #fff;
     /* 호버 시 투명도 조절 */
-    cursor: pointer; /* 호버 시 커서를 포인터로 변경 */
-    color: red; /* 호버 시 컬러를 빨간색으로 변경 */
+    cursor: pointer;
+    /* 호버 시 커서를 포인터로 변경 */
+    color: red;
+    /* 호버 시 컬러를 빨간색으로 변경 */
 }
 
 .content {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     /* 요소를 가로로 정렬 */
     gap: 20px;
 }
@@ -117,8 +125,10 @@ body {
     background: #00ffa2;
 }
 
-.promise, .name, .tendency{
-    text-align: center; 
+.promise,
+.name,
+.tendency {
+    text-align: center;
     font-size: 13px;
     margin-bottom: 5px;
     font-family: "Single Day", cursive;
@@ -126,7 +136,7 @@ body {
     font-style: normal;
 }
 
-section .image{
+section .image {
     height: 140px;
     width: 140px;
     border-radius: 50%;
@@ -134,18 +144,19 @@ section .image{
 }
 
 
-section .image img{
+section .image img {
     margin-top: 10px;
     height: 150px;
     width: 140px;
-    border-radius: 50%; 
+    border-radius: 50%;
     border: 2px solid #000;
 }
 
 .navbar-brand {
     font-size: 1.8rem;
     text-align: center;
-    flex-grow: 1; /* 중앙에 정렬되도록 확장되도록 설정합니다. */
+    flex-grow: 1;
+    /* 중앙에 정렬되도록 확장되도록 설정합니다. */
     color: #eff1d7;
 }
 
@@ -153,18 +164,21 @@ section .image img{
     background-color: #30911a;
     border-radius: 0 0 10px 10px;
     box-shadow: 2px 2px 2px gray;
-    font-family: 'TTHakgyoansimDotbogiR';   
+    font-family: 'TTHakgyoansimDotbogiR';
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-  }
+}
 
-  .navbar-teamname:hover {
+.navbar-brand:hover {
     color: #ff0000;
-  }
+    border-color: #00eaff;
+    /* 호버 시 테두리 색상 변경 */
+}
 
-  #guestBookBtn, #HomeBtn {
+#guestBookBtn,
+#HomeBtn {
     border: 2px solid #eff1d7;
     background-color: #30911a;
     color: #eff1d7;
@@ -172,44 +186,77 @@ section .image img{
     padding: 0.5rem 1rem;
     font-family: 'TTHakgyoansimDotbogiR';
     align-items: center;
-  }
+}
 
-  .notice-container {
+#guestBookBtn:hover {
+    color: #ff0000;
+    /* 호버 시 텍스트 색상 변경 */
+    border-color: #ffffff;
+    /* 호버 시 테두리 색상 변경 */
+}
+
+#HomeBtn:hover {
+    color: #ff0000;
+    /* 호버 시 텍스트 색상 변경 */
+    border-color: #ffffff;
+    /* 호버 시 테두리 색상 변경 */
+}
+
+.notice-container {
     display: flex;
-    justify-content: center; /* 요소들을 가운데 정렬합니다. */
-    gap: 30px; /* 요소들 사이의 간격을 설정합니다. */
-    margin-top: 30px; /* 위쪽 간격을 추가합니다. */
-  }
+    justify-content: center;
+    /* 요소들을 가운데 정렬합니다. */
+    gap: 30px;
+    /* 요소들 사이의 간격을 설정합니다. */
+    margin-top: 30px;
+    /* 위쪽 간격을 추가합니다. */
+}
 
-  .notice {
+.notice {
     background-color: #f0f0f0;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: calc(50% - 10px); /* 컨테이너의 절반 크기로 설정하고 간격을 빼줍니다. */
-    max-width: 400px; /* 최대 너비를 설정합니다. */
+    width: calc(50% - 10px);
+    /* 컨테이너의 절반 크기로 설정하고 간격을 빼줍니다. */
+    max-width: 400px;
+    /* 최대 너비를 설정합니다. */
     line-height: 1.5;
     font-family: "Single Day", cursive;
     font-style: normal;
 
-  }
+}
 
-  .notice-title {
+.notice-title {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
-  }
+}
 
-  .notice-content {
+.notice-content {
     font-size: 15px;
     text-align: center;
-  }
+}
 
-.a{
+.a {
     text-decoration: none;
-  }
+}
 
-  .highlight {
-    color: red; /* 빨간색으로 설정하거나 원하는 색상으로 변경하세요 */
+a:hover {
+    color: #257213;
+}
+
+.highlight {
+    color: red;
+    /* 빨간색으로 설정하거나 원하는 색상으로 변경하세요 */
+}
+
+.button_container {
+    margin-top: 100px;
+}
+
+.table_container {
+    margin-top: 80px;
+    
 }
