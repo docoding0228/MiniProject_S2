@@ -5,13 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-
+    
+    <link rel="stylesheet" href="./style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
 
-
+    <!-- 부트스트랩 적용 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <title>우리... 할 수 있죠</title>
@@ -40,6 +47,7 @@
         let docs = await getDocs(collection(db, "team_member"));
         docs.forEach((doc) => {
             let row = doc.data();
+            
             let memberBio = row['memberBio'];
             let memberBlog = row['memberBlog'];
             let memberGithub = row['memberGithub'];
@@ -57,23 +65,22 @@
             let temp_html = `
             <div class="card">
                     <div class="card-content">
-                        <div class="image">
-                            <div class="">
+                        <div class="imageSec">
+                            <div class="image">
                                 <img src="${memberImage}" alt="Person 1">
                             </div>
                         </div>
                         <div class="media-icons">
-                            <a href="${memberBlog}"><i class="fa-solid fa-blog blog-icon"></i></a>
-                            <a href="${memberGithub}"><i
-                                    class="fa-brands fa-github github-icon"></i></a>
-
+                            <a href="${memberBlog}" target="_blank"><i class="fa-solid fa-blog blog-icon"></i></a>
+                            <a href="${memberGithub}" target="_blank"><i
+                                    class="fa-brands fa-github github-icon" ></i></a>
                         </div>
                         <div class="name-profession">
-                            <span class="name">이름 : ${memberName}</span>
+                            <span class="name">${memberName}</span>
                             <span class="tendency">MBTI : ${memberMbti}</span>
-                            <span class="promise">한 줄 다짐 : "${memberBio}"</span>
-                            <button class="aboutMe" data-id="${memberNickname}">상세 정보</button>
+                            <span class="promise">"${memberBio}"</span>
                         </div>
+                        <button class="aboutMe" data-id="${doc.id}">상세 정보</button>
                     </div>
                 </div>
             `;
@@ -83,8 +90,10 @@
         $(document).ready(function () {
             $("#header").load("header.html");
             $(".aboutMe").click(function () {
+
                 let userId = $(this).data("id");
                 window.location.href = "memberDetail.html?userid=" + userId;
+            
             });
 
             $(document).on("click", "#guestBookBtn", function () {
@@ -96,9 +105,9 @@
 
 </head>
 
-<body>
+<body style="background-color: #eff1d7;">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <a class="navbar-brand mx-auto" href="#" style="text-decoration: none;">우리... 할 수 있조 🔥</a>
+        <a class="navbar-brand mx-auto" onclick = "location.href='./index.html'" style="font-size: 1.8rem;">우리... 할 수 있조 🔥</a>
         <div class="d-flex" role="search">
             <button class="btn btn-outline-success" id="guestBookBtn">✏️ 방명록</button>
         </div>
@@ -107,15 +116,15 @@
     <div class="notice-container">
         <div class="notice">
             <h2 class="notice-title">[우리 팀의 특징과 목표]</h2>
-            <p class="notice-content">●<span class="highlight">첫째)</span> 저희는 개방적인 커뮤니케이션을 통해 정보를 공유하고 참여도를 팀원 간의 참여도를 높일 것입니다.</p>
-            <p class="notice-content">●<span class="highlight">둘째)</span> 저희는 협업과 팀워크를 특징으로 하며, 서로를 존중하고 지원함으로써 함께 높은 성과을 이뤄낼 것입니다.</p>
-            <p class="notice-content">●<span class="highlight">셋째)</span> 저희는 우리는 지속적인 학습을 통해 개인 및 팀 역량을 향상시키고, 변화하는 환경에 적응하며 발전하는 모습을 지향합니다.</p>
+            <p class="notice-content"><span class="highlight">✔</span> 저희는 개방적인 커뮤니케이션을 통해 정보를 공유하고 참여도를 팀원 간의 참여도를 높일 것입니다.</p>
+            <p class="notice-content"><span class="highlight">✔</span> 저희는 협업과 팀워크를 특징으로 하며, 서로를 존중하고 지원함으로써 함께 높은 성과을 이뤄낼 것입니다.</p>
+            <p class="notice-content"><span class="highlight">✔</span> 저희는 우리는 지속적인 학습을 통해 개인 및 팀 역량을 향상시키고, 변화하는 환경에 적응하며 발전하는 모습을 지향합니다.</p>
         </div>
         <div class="notice">
             <h2 class="notice-title">[우리 팀만의 약속]</h2>
-            <p class="notice-content">●<span class="highlight">첫째)</span> 모르는 게 있을 때 팀원과 상의해서 진행하기를 통해 협업을 중요시 할 것 !!</p>
-            <p class="notice-content">●<span class="highlight">둘째)</span> 지각, 결석 시 밤 늦게라도! 팀원에게 꼭 알려주기! 다른분들의 시간 또한 존중해주기</p>
-            <p class="notice-content">●<span class="highlight">셋째)</span> 학습에 충실히하며, 목표한 바 달성하기 !! 포기하지않고 열심히 해봅시다. !!</p>
+            <p class="notice-content"><span class="highlight">✔</span> 모르는 게 있을 때 팀원과 상의해서 진행하기를 통해 협업을 중요시 할 것 !!</p>
+            <p class="notice-content"><span class="highlight">✔</span> 지각, 결석 시 밤 늦게라도! 팀원에게 꼭 알려주기! 다른분들의 시간 또한 존중해주기</p>
+            <p class="notice-content"><span class="highlight">✔</span> 학습에 충실히 하며, 목표한 바 달성하기 !! 포기하지않고 열심히 해봅시다. !!</p>
         </div>
         </div>
 

@@ -5,53 +5,115 @@
     font-style: normal;
 }
 
-body {
-    background-color: #eff1d7;
-    height: 100%;
-}
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    /* font-weight: 800; */
+    font-style: normal;
+}  
 
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    background-color: #eff1d7;
+    height: 100%;
+}
+
+.navbar {
+    background-color: #30911a;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 2px 2px 2px gray;
+    font-family: 'TTHakgyoansimDotbogiR';
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    color: #eff1d7;
+}
+
+.navbar-brand:hover {
+    color: lightgray;
+    cursor: pointer;
+}
+
+
+#guestBookBtn, #HomeBtn {
+    border: 2px solid #eff1d7;
+    color: #eff1d7;
+    font-size: 1.5rem;
+    float: right;
+    margin-right: 20px;
+}
+
+#guestBookBtn:hover {
+    box-shadow: 0px 0px 15px gray;
+    color: lightgray;
+    /* 호버 시 텍스트 색상 변경 */
+    border-color: #ffffff;
+    /* 호버 시 테두리 색상 변경 */
+}
+
+#HomeBtn:hover {
+    color: lightgray;
+    /* 호버 시 텍스트 색상 변경 */
+    border-color: #ffffff;
+    /* 호버 시 테두리 색상 변경 */
 }
 
 .container {
-    height: 100vh;
+    height: 100%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: "Poppins", sans-serif;
-
+    font-family: "GmarketSansMedium", sans-serif;
 }
 
-.image {
-    height: 120px;
-    /* 더 작은 크기로 조정 */
-    width: 120px;
-    /* 더 작은 크기로 조정 */
-    border-radius: 50%;
-    background: #7d2ae8;
-    margin-bottom: 20px;
-    /* 이미지 아래 여백 추가 */
-}
 
 .card {
     position: relative;
     /* 자기 자신의 기본 위치에서 상대적으로 이동 */
-    background: #fff;
+    background: #fcfcf4;
     border-radius: 10%;
-    width: 200px;
-    height: 380px;
+    width: 220px;
+    height: 430px;
     margin: 10px;
     overflow: hidden;
-    /* margin-top: 10px; */
-    border: 2px solid #000;
+    box-shadow: 0px 0px 15px gray;
     /* 테두리 추가 */
 }
 
+section .image {
+    height: 140px;
+    width: 140px;
+    border-radius: 70%;
+    background-color: #fcfcf4;
+    overflow: hidden;
+    margin: 1rem auto 1rem auto;
+    box-shadow: 0px 0px 15px gray;
+}
+
+section .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .card-content {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,11 +127,12 @@ body {
     position: absolute;
     height: 30%;
     width: 100%;
-    background: #00ffa2;
+    background: #30911a;
     border-radius: 0 0 0 0;
 }
 
 .card .name-profession {
+    height: 80%;
     display: flex;
     flex-direction: column;
     /* flex 로 컨테이너 지정 후 direction 으로 세로정렬 */
@@ -82,10 +145,8 @@ body {
 .github-icon {
     color: black;
     margin: 10px;
-    font-size: 20px;
+    font-size: 1.5rem;
     /* 아이콘 크기 설정 */
-    cursor: pointer;
-    /* 커서를 포인터로 변경하여 클릭 가능하게 함 */
 }
 
 .blog-icon:hover,
@@ -95,7 +156,7 @@ body {
     /* 호버 시 투명도 조절 */
     cursor: pointer;
     /* 호버 시 커서를 포인터로 변경 */
-    color: red;
+    color: #30911a;
     /* 호버 시 컬러를 빨간색으로 변경 */
 }
 
@@ -110,96 +171,37 @@ body {
     display: flex;
     width: 150px;
     justify-content: space-around;
-    margin-top: 20px;
-    background: #00ddff;
+    margin-top: 1rem;
+    background: #30911a;
     outline: none;
     border: none;
     color: #fff;
     padding: 8px 22px;
     border-radius: 20px;
-    font-size: 10px;
+    font-size: 0.8rem;
     transition: all 0.3s ease;
 }
 
 .aboutMe:hover {
-    background: #00ffa2;
+    background: #30911a;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px gray;
 }
 
 .promise,
-.name,
 .tendency {
     text-align: center;
-    font-size: 13px;
+    font-size: 0.9rem;
     margin-bottom: 5px;
-    font-family: "Single Day", cursive;
     font-weight: 400;
     font-style: normal;
 }
 
-section .image {
-    height: 140px;
-    width: 140px;
-    border-radius: 50%;
-    background: #00ffa2;
-}
-
-
-section .image img {
-    margin-top: 10px;
-    height: 150px;
-    width: 140px;
-    border-radius: 50%;
-    border: 2px solid #000;
-}
-
-.navbar-brand {
-    font-size: 1.8rem;
+.name {
     text-align: center;
-    flex-grow: 1;
-    /* 중앙에 정렬되도록 확장되도록 설정합니다. */
-    color: #eff1d7;
-}
-
-.navbar {
-    background-color: #30911a;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 2px 2px 2px gray;
-    font-family: 'TTHakgyoansimDotbogiR';
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-}
-
-.navbar-brand:hover {
-    color: #ff0000;
-    border-color: #00eaff;
-    /* 호버 시 테두리 색상 변경 */
-}
-
-#guestBookBtn,
-#HomeBtn {
-    border: 2px solid #eff1d7;
-    background-color: #30911a;
-    color: #eff1d7;
-    font-size: 1.5rem;
-    padding: 0.5rem 1rem;
-    font-family: 'TTHakgyoansimDotbogiR';
-    align-items: center;
-}
-
-#guestBookBtn:hover {
-    color: #ff0000;
-    /* 호버 시 텍스트 색상 변경 */
-    border-color: #ffffff;
-    /* 호버 시 테두리 색상 변경 */
-}
-
-#HomeBtn:hover {
-    color: #ff0000;
-    /* 호버 시 텍스트 색상 변경 */
-    border-color: #ffffff;
-    /* 호버 시 테두리 색상 변경 */
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    font-weight: 600;
 }
 
 .notice-container {
@@ -208,21 +210,22 @@ section .image img {
     /* 요소들을 가운데 정렬합니다. */
     gap: 30px;
     /* 요소들 사이의 간격을 설정합니다. */
-    margin-top: 30px;
+    margin-top: 3rem;
     /* 위쪽 간격을 추가합니다. */
 }
 
 .notice {
-    background-color: #f0f0f0;
+    background-color: white;
     padding: 20px;
-    border: 1px solid #ccc;
+    box-shadow: 0px 0px 15px gray;
+    /* border: 1px solid #ccc; */
     border-radius: 5px;
     width: calc(50% - 10px);
     /* 컨테이너의 절반 크기로 설정하고 간격을 빼줍니다. */
     max-width: 400px;
     /* 최대 너비를 설정합니다. */
     line-height: 1.5;
-    font-family: "Single Day", cursive;
+    font-family: "GmarketSansMedium", cursive;
     font-style: normal;
 
 }
@@ -230,33 +233,20 @@ section .image img {
 .notice-title {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 1.5rem;
+    color: #30911a;
     text-align: center;
 }
 
 .notice-content {
     font-size: 15px;
-    text-align: center;
-}
-
-.a {
-    text-decoration: none;
-}
-
-a:hover {
-    color: #257213;
+    /* text-align: center; */
 }
 
 .highlight {
-    color: red;
-    /* 빨간색으로 설정하거나 원하는 색상으로 변경하세요 */
+    color: #30911a;
+    font-weight: 600;
+    font-size: 1.3rem;
 }
 
-.button_container {
-    margin-top: 100px;
-}
 
-.table_container {
-    margin-top: 80px;
-    
-}

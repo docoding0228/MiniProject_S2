@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>우리... 할 수 있조</title>
 
     <!-- 제이쿼리 적용-->
@@ -15,17 +16,17 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./memberDetail.css">
     <link rel="stylesheet" href="./checkPopup.css">
     <link rel="stylesheet" href="./editPopup.css">
-    <link rel="stylesheet" href="style.css">
-    
 
 </head>
 <body>
-
+    <!-- 헤더 섹션-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <a class="navbar-brand mx-auto" href="#" style="text-decoration: none;">우리... 할 수 있조 🔥</a>
+        <a class="navbar-brand mx-auto" onclick = "location.href='./index.html'" >우리... 할 수 있조 🔥</a>
         <div class="d-flex" role="search">
             <button class="btn btn-outline-success" id="guestBookBtn">✏️ 방명록</button>
         </div>
@@ -35,41 +36,30 @@
         <div class="profile">
             <div class="profileImgSec">
                 <div class="profileImg">
-                    <img classs="img"
-                    src="./Image/profileLSY.jpg" >
+                    <img class="img" id="memberImg"
+                    src="" >
                 </div>
             </div>
             <div class="profileText">
                 <div class="line1">
-                    <span id="memberName">이서연</span>
+                    <span id="memberName"></span>
                     <p id="editBtn" onclick="loadPopup()">수정</p>
                 </div>
                 
-                <div class="line2">
-                    <span id="memberMBTI">#INTP</span>
-                    <span id="memberTag">#영화마니아</span>
-                    <span id="memberTag">#도파민중독</span>
+                <div class="line2" id="line2"> 
                 </div>
-                
-                <p id="onelineBio">어제보다 오늘 더 나은 개발자가 되겠습니다!</p>
 
-                <div class="urlBox">
-                    <div class="url" id="github">
-                        <img src="./Image/github.png" alt="">
-                    </div>
-                    <div class = "url" id ="velog">
-                        <img src="./Image/velog.png" alt="">
-                    </div>
+                <p id="memberBio"></p>
+
+                <div class="urlBox" id="urlBox">
                 </div>
-                
-
             </div>
         </div>
         <!-- 하단 긴 글 섹션 -->
         <div class="longContent">
             <div class="element1">
                 <p class="segment">자기 소개</p>
-                <div class="segmentText" id="segmentText1">안녕하세요:) JAVA 5기 참여하게 된 24살 이서연입니다! 프로젝트 경험도 처음, 자바 스프링 공부도 처음인데 열심히 공부해서 잘 따라가보겠습니다 🙌 아직 아는 건 많이 없지만 앞으로 잘 부탁드려요😉</div>
+                <div class="segmentText" id="memberIntro"></div>
             </div>
 
             <div class="element2">
@@ -77,23 +67,21 @@
                 <div class="segmentText">
                     <div class="segmentText2">
                         <div class="number">1</div>
-                        <span>제 의견은 말하되, 밀어붙이지 않아요!</span>
+                        <span id="memberPos1"></span>
                     </div>
                     <div class="segmentText2">
                         <div class="number">2</div>
-                        <span>고맙다는 말, 미안하다는 말은 바로바로!</span>
+                        <span id="memberPos2"></span>
                     </div>
                     <div class="segmentText2">
                         <div class="number">3</div>
-                        <span>상대의 장점을 잘 발견하는 게 저의 장점!</span>
+                        <span id="memberPos3"></span>
                     </div>
-                    
                 </div>
             </div>
             <div class="element3">
                 <p class="segment">협업 스타일</p>
-                <div class="segmentText" id="segmentText3">
-                    편하게 소통하는 걸 선호합니다. 모르는 부분, 어려운 부분이 있으면 함께 이야기하고 싶어요! 
+                <div class="segmentText" id="memberStyle">
                 </div>
             </div>
         </div>
@@ -105,9 +93,9 @@
             <p id="exitPopup" onclick="exitPopup()">✖</p>
             <div class="checkContent">
                 <p id="alertMsg">개인 코드를 입력해주세요!</p>
-                <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                <p id="failMsg">존재하는 개인 코드가 없습니다!</p>
-                <button class="btn mt-3" id="check">확인</button>
+                <input type="password" id="inputPw" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <p id="failMsg">개인 코드가 일치하지 않습니다!</p>
+                <button class="btn mt-3" id="checkBtn">확인</button>
             </div>
         </div>
     </div>
@@ -116,92 +104,97 @@
     <div class="popup-edit" id="popupEdit">
         <div class="editSection">
             <p id="exitPopup" onclick="exitPopup()">✖</p>
-            <div class="editImg">
-                <img classs="img"
-                src="./Image/profileLSY.jpg" >
+            <div class="editImgSec">
+                <img class="img" id="updateImg"
+                src="" >
             </div>
-            <input class="form-control mt-2" type="file" id="image">
+            <input class="form-control mt-2" type="file" id="editImgSrc" accept="image/*" onchange="loadNewFile(this)">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">이름</span>
+                <input type="text" id="updateName" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Mbti</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="text" id="updateMbti" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">최애 취미</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="text" id="updateHobby" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 
                 <span class="input-group-text" id="inputGroup-sizing-default">나만의 수식어</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="text" id="updateNickname" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">다짐 한 마디</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="text" id="updateBio" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Github 주소</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="text" id="updateGithub" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">블로그 주소</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="text" id="updateBlog" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
 
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">자기소개</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="updateIntro" rows="3"></textarea>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">나만의 장점</label>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">1</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" id="updatePos1" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">2</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" id="updatePos2" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">3</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" id="updatePos3" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                 </div>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">협업 스타일</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="updateStyle" rows="3"></textarea>
             </div>
             <button class="btn mt-3" id="update">수정하기</button>
         </div>   
     </div>
 
 </body>
+<script type="module" src="./firebase_memberDetail.js"></script>
+<script type="module">
+    import { displayDetailpage } from "./firebase_memberDetail.js"; 
+    window.onload = displayDetailpage;
+</script>
 <script>
-
+    // 개인 키 확인 팝업 띄우기
     function loadPopup() {
         document.getElementById('popupCheck').style.display = 'block';
     }
 
+    // 팝업 창 나가기
     function exitPopup() {
         document.getElementById('popupCheck').style.display = 'none';
         document.getElementById('popupEdit').style.display = 'none';
     }
 
-    document.getElementById('check').addEventListener('click', function() {
-        document.getElementById('popupCheck').style.display = 'none';
-        document.getElementById('popupEdit').style.display = 'block';
-    })
-
     $(document).on("click", "#guestBookBtn", function () {
-            window.location.href = "guest_room.html";
-        });
+        window.location.href = "guest_room.html";
+    });
 
-
-
-    // 실행 안 됨
-    // function loadPopup() {
-    //     $("#popupCheck").style.display = 'block';
-    // }
-
+    // 수정 창 이미지 미리보기 구현
+    function loadNewFile(input) {
+        let file = input.files[0];
+        let newSrc = URL.createObjectURL(file);
+        $("#updateImg").attr('src', newSrc);
+    }
 </script>
+
 </html>
