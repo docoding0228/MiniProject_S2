@@ -123,7 +123,7 @@ $("#update").click(async function (){
     } else {
         // storage에 이미지 파일 저장
         let random = new Date().getTime();
-        let storageRef = ref(storage, `reviewImage/${userId}/` + random);
+        let storageRef = ref(storage, `profileImg/${userId}/` + random);
         
         const uploadTask = uploadBytesResumable(storageRef, file);
         
